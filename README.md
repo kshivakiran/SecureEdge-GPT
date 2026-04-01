@@ -1,3 +1,13 @@
+---
+title: SecureEdge-GPT
+emoji: 🛡️
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🛡️ SecureEdge-GPT: Distributed Privacy-Preserving medical AI
 
 **SecureEdge-GPT** is a state-of-the-art distributed model training system designed for the healthcare industry. It enables multiple hospitals to collaboratively train a **Medical Assistant AI** (Microsoft Phi-3) using real clinical transcripts without ever sharing patient data.
