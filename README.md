@@ -67,6 +67,8 @@ This command will:
 ## 📊 Viewing the Results
 Once the simulation starts, open your browser to **http://localhost:8501** (or the port shown in your terminal). You will see the live training progress, node status, and the security budget being managed by the AI.
 
+https://huggingface.co/spaces/ShivaKiranKunchala/SecureEdge-GPT
+
 ---
 
 ## 📜 Business Value
