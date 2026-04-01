@@ -1,18 +1,22 @@
 # Use an official Python runtime as a parent image
 FROM python:3.12-slim
 
-# Set the working directory in the container
+# Create a non-root user for security (Requirement for Hugging Face)
+RUN useradd -m -u 1000 user
+USER user
+ENV PATH="/home/user/.local/bin:$PATH"
+
+# Set the working directory
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY --chown=user . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-# Make port 8501 available to the world
-EXPOSE 8501
+# Hugging Face Spaces uses Port 7860
+EXPOSE 7860
 
 # Run streamlit when the container launches
-# This tells Hugging Face to start your dashboard automatically
-ENTRYPOINT ["python", "-m", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true", "--browser.gatherUsageStats=false"]
+ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0"]
