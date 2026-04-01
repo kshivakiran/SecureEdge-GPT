@@ -1,0 +1,11 @@
+flwr==1.8.0
+transformers
+peft
+opacus
+torch
+torchvision
+torchaudio
+streamlit
+numpy
+pandas
+accelerate
